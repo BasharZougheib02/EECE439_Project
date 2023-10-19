@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Title</title>
+</head>
+<body>
+<form method="post">
+ {% csrf_token %}
+ {{ form.as_p }}
+ <input type="submit" value="Submit"/>
+</form>
+<div>
+    {% for contact in list %}
+    <p>Name: {{ contact.name }}<br/></p>
+    <p>
+        <a href=contact/{{contact.id}}><button>View</button></a>
+        <a href=edit/{{contact.id}}><button>Edit</button></a>
+        <a href=delete/{{contact.id}}><button>Delete</button></a>
+    </p>
+    <hr/>
+    {% endfor %}
+</div>
+</body>
+</html>
